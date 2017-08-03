@@ -38,7 +38,6 @@ public class AccesDB {
                 geografie.setNumeTara(rs.getString("numetara"));
                 geografie.setCapitala(rs.getString("capitala"));
                 geografie.setContinent(rs.getString("numecontinent"));
-
                 listaDinDB.add(geografie);
             }
             rs.close();

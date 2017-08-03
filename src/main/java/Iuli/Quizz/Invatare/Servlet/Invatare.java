@@ -19,6 +19,8 @@ import java.io.PrintWriter;
 public class Invatare extends HttpServlet {
     public void service(HttpServletRequest request, HttpServletResponse response) {
 
+        System.out.println("lala lalal lalala");
+
         List<DeInvatat> test = new AccesDB().listaCompleta();
         for (DeInvatat geografie : test) {
             System.out.println(geografie.getId() + " " + geografie.getNumeTara() + ":" +
@@ -27,7 +29,7 @@ public class Invatare extends HttpServlet {
         JSONObject json = new JSONObject();
         AccesDB db = new AccesDB();
 
-        json.put("listaCapitale", db.getClass());
+        json.put("listaCapitale", db.listaCompleta());
 
         String result = json.toString();
         System.out.println("result products:" + result);
