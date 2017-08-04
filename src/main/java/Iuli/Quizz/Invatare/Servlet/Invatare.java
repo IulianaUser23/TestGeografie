@@ -1,4 +1,5 @@
 package Iuli.Quizz.Invatare.Servlet;
+
 import Iuli.Quizz.Invatare.AccesDB;
 import Iuli.Quizz.Invatare.DeInvatat;
 import org.json.JSONObject;
@@ -15,26 +16,20 @@ import java.io.PrintWriter;
 /**
  * Created by IulianaUser23 on 04.08.2017.
  */
-@WebServlet("/invat")
+@WebServlet("/invaturl")
 public class Invatare extends HttpServlet {
     public void service(HttpServletRequest request, HttpServletResponse response) {
 
-        System.out.println("lala lalal lalala");
+       JSONObject json = new JSONObject();
 
-        List<DeInvatat> test = new AccesDB().listaCompleta();
-        for (DeInvatat geografie : test) {
-            System.out.println(geografie.getId() + " " + geografie.getNumeTara() + ":" +
-                    geografie.getCapitala() + geografie.getContinent());}
-
-        JSONObject json = new JSONObject();
         AccesDB db = new AccesDB();
-
-        json.put("listaCapitale", db.listaCompleta());
+        json.put("listaCapitaleJson", db.listaCompleta());
 
         String result = json.toString();
-        System.out.println("result products:" + result);
+        System.out.println("result list" + result);
         returnJsonResponse(response, result);
     }
+
     private void returnJsonResponse(HttpServletResponse response, String jsonResponse) {
         response.setContentType("application/json");
         PrintWriter pr = null;
