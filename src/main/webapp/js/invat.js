@@ -1,15 +1,15 @@
 /**
- * Created by User on 04.08.2017.
+ * Created by IulianaUser23 on 04.08.2017.
  */
-
 
 function listInvat(listaCapitaleJson) {
     var list = document.getElementById('listDeInvatat');
     var listHtml = '';
 
     for (var i = 0; i < listaCapitaleJson.length; i++) {
-        var lCapitala = listaCapitaleJson[i];
-        listHtml = listHtml + lCapitala.capitala + '&nbsp;' + lCapitala.numeTara + lCapitala.continent + '</br>';
+        var lCompleta = listaCapitaleJson[i];
+        listHtml = listHtml + lCompleta.capitala + '&nbsp;' + lCompleta.numeTara +
+                                                   '&nbsp;' + lCompleta.continent + '</br>';
     }
     list.innerHTML = listHtml;
 }
@@ -20,5 +20,7 @@ function listDeInvatat() {
         listInvat(response.listaCapitaleJson);
     })
 }
+
+
 
 
