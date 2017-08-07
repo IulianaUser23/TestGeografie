@@ -8,6 +8,7 @@
 </head>
 <body>
 <h2>
+    <button type="button" onclick="location.href = 'http://localhost:8080/GeoQuizz'"> Inapoi la Homepage</button>
 
     </br>
     <img src="pictures/Europa.png" alt="Continentul european" style="float:left;width:100px;height:100px;">
@@ -21,16 +22,15 @@
 
 
     <div id="continent">
-        <button>Europa</button>
-        <button>Asia</button>
-        <button>America de Sud</button>
-        <button>America de Nord</button>
-        <button>Africa</button>
-        <button>Australia si Oceania</button></br>
+        <button type="button" onclick="listDeInvatatP(1)">Europa</button>
+        <button type="button" onclick="listDeInvatatP(2)">Asia</button>
+        <button type="button" onclick="listDeInvatatP(3)">America de Sud</button>
+        <button type="button" onclick="listDeInvatatP(4)">America de Nord</button>
+        <button type="button" onclick="listDeInvatatP(5)">Africa</button>
+        <button type="button" onclick="listDeInvatatP(6)">Australia si Oceania</button></br>
     </div>
 
 </h2>
-
 <div id="listDeInvatatP" style="text-align: center;
          color: black;
          position: absolute;
@@ -40,12 +40,8 @@
          margin: 20px;
          padding-left: 25px;
          padding-right: 25px;">
-    <ul>
-
-    </ul>
 </div>
 
-<script>listDeInvatatP()</script>
 
 </body>
 </html>

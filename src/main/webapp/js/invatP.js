@@ -5,14 +5,15 @@ function listInvatP(listaPartialaJson) {
 
     for (var i = 0; i < listaPartialaJson.length; i++) {
         var lPartiala = listaPartialaJson[i];
-        listHtml = listHtml + lPartiala.continent + '</br>';
+        listHtml = listHtml + lPartiala.numeTara + '&nbsp;' + lPartiala.capitala + '</br>';
     }
     list1.innerHTML = listHtml;}
 
-function listDeInvatatP() {
+function listDeInvatatP(continent) {
     $.ajax({
-        url: 'invatpurl?action=list'
+        url: 'invatpurl?continent='+continent
     }).done(function (response) {
-        listInvatP(response.listaPartialaJson);
-    })
+        listInvatP(response.listaPartialaJson); })
 }
+
+

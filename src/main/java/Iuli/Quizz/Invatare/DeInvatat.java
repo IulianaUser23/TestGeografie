@@ -8,6 +8,7 @@ public class DeInvatat {
     private int id;
     private String numeTara;
     private String capitala;
+    private int idc;
     private String continent;
 
     public int getId() {
@@ -38,8 +39,17 @@ public class DeInvatat {
         return continent;
     }
 
+    public int getIdc() {
+        return idc;
+    }
+
+    public void setIdc(int idc) {
+        this.idc = idc;
+    }
+
     public void setContinent(String continent) {
         this.continent = continent;
     }
+
 }
 

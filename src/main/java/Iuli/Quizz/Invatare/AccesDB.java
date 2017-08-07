@@ -47,7 +47,8 @@ public class AccesDB {
         }
         return listaDinDB;
     }
-    public List<DeInvatat> listaPartiala() {
+
+    public List<DeInvatat> listaPartiala(int continent) {
         List<DeInvatat> listaPartialaDB = new ArrayList();
 
         try {
@@ -56,16 +57,24 @@ public class AccesDB {
             final String USERNAME = "fasttrackit_dev";
             final String PASSWORD = "fasttrackit_dev";
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            Statement st = conn.createStatement();
+            //Statement st = conn.createStatement();
+            // ResultSet ps = st.executeQuery("SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+            // "WHERE idc = 1\n");
 
-//executa declaratie
-            ResultSet ps = st.executeQuery("SELECT * FROM continent");
+            String listaContinente = "SELECT * FROM tara INNER JOIN continent ON tara.idt = continent.idc " +
+                    "WHERE idc = ?";
+            PreparedStatement st = conn.prepareStatement(listaContinente);
+            st.setInt(1, continent);
 
+            ResultSet ps = st.executeQuery();
             while (ps.next()) {
                 DeInvatat listContinent = new DeInvatat();
-                listContinent.setContinent(ps.getString("numecontinent"));
-                listaPartialaDB.add(listContinent);
-            }
+                listContinent.setId(ps.getInt("id"));
+                listContinent.setNumeTara(ps.getString("numetara"));
+                listContinent.setCapitala(ps.getString("capitala"));
+                listaPartialaDB.add(listContinent);}
+
+
             ps.close();
             st.close();
             conn.close();
@@ -78,3 +87,17 @@ public class AccesDB {
         return listaPartialaDB;
     }
 }
+/**
+ * String listContinent1= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+ * "WHERE idc =1\n";
+ * String listContinent2= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+ * "WHERE idc =2\n";
+ * String listContinent3= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+ * "WHERE idc =3\n";
+ * String listContinent4= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+ * "WHERE idc =4\n";
+ * String listContinent5= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+ * "WHERE idc =5\n";
+ * String listContinent6= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
+ * "WHERE idc =6\n";
+ */

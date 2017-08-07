@@ -19,8 +19,12 @@ public class InvatarePrt extends HttpServlet {
 
         JSONObject json = new JSONObject();
 
+        String query = request.getQueryString();
+        System.out.println(query);
+        String continent = query.split("=")[1];
+
         AccesDB db1 = new AccesDB();
-        json.put("listaPartialaJson", db1.listaPartiala());
+        json.put("listaPartialaJson", db1.listaPartiala(Integer.parseInt(continent)));
 
         String result1 = json.toString();
         System.out.println("result1 list" + result1);
