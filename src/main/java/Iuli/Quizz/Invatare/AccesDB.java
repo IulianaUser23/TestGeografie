@@ -95,12 +95,13 @@ public class AccesDB {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            ResultSet rs = st.executeQuery("SELECT id, capitala FROM tara ORDER BY RANDOM() LIMIT 60");
+            ResultSet rs = st.executeQuery("SELECT id, numetara, capitala FROM tara ORDER BY RANDOM() LIMIT 60");
 
             while (rs.next()) {
                 TaraContinent raspunsuri = new TaraContinent();
                 raspunsuri.setId(rs.getInt("id"));
                 raspunsuri.setCapitala(rs.getString("capitala"));
+                raspunsuri.setNumeTara(rs.getString("numetara"));
                 listaCuRaspunsuri.add(raspunsuri);
             }
             rs.close();
