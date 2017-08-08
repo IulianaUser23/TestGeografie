@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class AccesDB {
 
-    public List<TaraContinent> listaCompleta() {
+    public List <TaraContinent> listaCompleta() {
         //se conecteaza la baza de date si returneaza lista de tari si capitale
         List<TaraContinent> listaDinDB = new ArrayList();
 

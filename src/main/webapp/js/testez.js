@@ -1,3 +1,18 @@
+var raspunsuriCorecte = [];
+
+
+function verificaRaspunsuri(formular) {
+// console.log(formular)
+    for (var i = 0; i < 60; i = +3) {
+        if ((formular [i][0].checked) |
+            (formular [i][1].checked) | (formular [i][2].checked)) {}
+        else {
+            alert("Nu ati raspuns la toate intrebarile.")
+            return false;
+        }
+    }
+    return true;
+}
 
 function listTestez(listaRaspunsuriJson) {
     var list2 = document.getElementById('listDeTestat');
@@ -7,19 +22,23 @@ function listTestez(listaRaspunsuriJson) {
         var rQuizz = listaRaspunsuriJson[i];
         var gresit1 = listaRaspunsuriJson[i + 1];
         var gresit2 = listaRaspunsuriJson[i + 2];
-        grup.push([rQuizz, gresit1, gresit2]);
-        listHtml = listHtml + "Ce capitala are " + rQuizz.numeTara + "?" + '<hr>' + rQuizz.capitala + '<br>' + gresit1.capitala
-            + '<br>' + gresit2.capitala + '<hr>' + '<br>'
-        }
+        var grupNou = [rQuizz, gresit1, gresit2];
+        grup.push(grupNou);
+        var random = Math.floor(Math.random() * 3);
+        var corect = grupNou[random];
+        raspunsuriCorecte.push(corect);
+        listHtml = listHtml + "Ce capitala are " + grupNou[random].numeTara + "?" + '<br>'
+            + buton(grupNou[0].capitala, i) + '<br>' + buton(grupNou[1].capitala, i)
+            + '<br>' + buton(grupNou[2].capitala, i) + '<hr>' + '<br>'
+    }
 
-    for (var j=0; j<grup.length; j++){
-        var random = Math.floor(Math.random()*3);
-        var listR = grup[j];
-        var corect = listR[random];
-        }
     list2.innerHTML = listHtml;
 }
 
+function buton(capitala, i) {
+    return '<onclick="selecteaza(\'' + capitala + '\')"> <input type="radio" name="' + i + '" value="' + capitala + '">' + capitala + '</>';
+    // return '<button onclick="selecteaza(\'bucuresti\')">' + capitala +'</button>';
+}
 function listDeTestat() {
     $.ajax({
         url: 'testezurl?action=list'
