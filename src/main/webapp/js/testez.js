@@ -8,13 +8,17 @@ function listTestez(listaRaspunsuriJson) {
         var gresit1 = listaRaspunsuriJson[i+1];
         var gresit2 = listaRaspunsuriJson[i+2];
         grup.push([rQuizz, gresit1, gresit2]);
-        listHtml = listHtml + "Ce capitala are:" + grup.corect +'<hr>' + rQuizz.capitala + '<br>' + gresit1.capitala
+        listHtml = listHtml + "Ce capitala are " + corect + "?" +'<hr>' + rQuizz.capitala + '<br>' + gresit1.capitala
             + '<br>' + gresit2.capitala +'<hr>' +'<br>'
         }
     for (var j=0; j<grup.length; j++){
         var random = Math.floor(Math.random()*3);
         var listR = grup[j];
-        var corect = listR[random];}
+        var corect = listR[random];
+        for (var k=0; k<grup.length; k++){
+            var ResultSet
+        }
+    }
 
     list2.innerHTML = listHtml;}
 
