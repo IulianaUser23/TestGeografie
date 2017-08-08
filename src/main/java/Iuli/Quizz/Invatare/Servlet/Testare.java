@@ -7,21 +7,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by IulianaUser23 on 04.08.2017.
+ * Created by User on 07.08.2017.
  */
-@WebServlet("/invaturl")
-public class Invatare extends HttpServlet {
+@WebServlet("/testezurl")
+public class Testare extends HttpServlet {
     public void service(HttpServletRequest request, HttpServletResponse response) {
 
-       JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject();
 
         AccesDB db = new AccesDB();
-        json.put("listaCapitaleJson", db.listaCompleta());
+        json.put("listaRaspunsuriJson", db.listaRaspunsuri());
 
         String result = json.toString();
         System.out.println("result list" + result);

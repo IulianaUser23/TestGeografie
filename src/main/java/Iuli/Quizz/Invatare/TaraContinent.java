@@ -3,7 +3,7 @@ package Iuli.Quizz.Invatare;
 /**
  * Created by IulianaUser23 on 03.08.2017.
  */
-public class DeInvatat {
+public class TaraContinent {
 
     private int id;
     private String numeTara;

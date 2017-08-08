@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class AccesDB {
 
-    public List<DeInvatat> listaCompleta() {
+    public List<TaraContinent> listaCompleta() {
         //se conecteaza la baza de date si returneaza lista de tari si capitale
-        List<DeInvatat> listaDinDB = new ArrayList();
+        List<TaraContinent> listaDinDB = new ArrayList();
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -29,7 +29,7 @@ public class AccesDB {
                     "inner join continent on tara.idt = continent.idc\n");
 
             while (rs.next()) {
-                DeInvatat geografie = new DeInvatat();
+                TaraContinent geografie = new TaraContinent();
                 geografie.setId(rs.getInt("id"));
                 geografie.setNumeTara(rs.getString("numetara"));
                 geografie.setCapitala(rs.getString("capitala"));
@@ -48,8 +48,8 @@ public class AccesDB {
         return listaDinDB;
     }
 
-    public List<DeInvatat> listaPartiala(int continent) {
-        List<DeInvatat> listaPartialaDB = new ArrayList();
+    public List<TaraContinent> listaPartiala(int continent) {
+        List<TaraContinent> listaPartialaDB = new ArrayList();
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -57,9 +57,6 @@ public class AccesDB {
             final String USERNAME = "fasttrackit_dev";
             final String PASSWORD = "fasttrackit_dev";
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            //Statement st = conn.createStatement();
-            // ResultSet ps = st.executeQuery("SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
-            // "WHERE idc = 1\n");
 
             String listaContinente = "SELECT * FROM tara INNER JOIN continent ON tara.idt = continent.idc " +
                     "WHERE idc = ?";
@@ -68,12 +65,11 @@ public class AccesDB {
 
             ResultSet ps = st.executeQuery();
             while (ps.next()) {
-                DeInvatat listContinent = new DeInvatat();
+                TaraContinent listContinent = new TaraContinent();
                 listContinent.setId(ps.getInt("id"));
                 listContinent.setNumeTara(ps.getString("numetara"));
                 listContinent.setCapitala(ps.getString("capitala"));
                 listaPartialaDB.add(listContinent);}
-
 
             ps.close();
             st.close();
@@ -86,18 +82,36 @@ public class AccesDB {
         }
         return listaPartialaDB;
     }
-}
-/**
- * String listContinent1= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
- * "WHERE idc =1\n";
- * String listContinent2= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
- * "WHERE idc =2\n";
- * String listContinent3= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
- * "WHERE idc =3\n";
- * String listContinent4= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
- * "WHERE idc =4\n";
- * String listContinent5= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
- * "WHERE idc =5\n";
- * String listContinent6= "SELECT *  FROM tara INNER JOIN continent ON tara.idt = continent.idc\n" +
- * "WHERE idc =6\n";
- */
+
+    public List <TaraContinent> listaRaspunsuri() {
+
+        List<TaraContinent> listaCuRaspunsuri = new ArrayList();
+
+        try {
+            Class.forName("org.postgresql.Driver");
+            final String URL = "jdbc:postgresql://54.93.65.5:5432/6IulianaUser23";
+            final String USERNAME = "fasttrackit_dev";
+            final String PASSWORD = "fasttrackit_dev";
+            Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery("SELECT id, capitala FROM tara ORDER BY RANDOM() LIMIT 60");
+
+            while (rs.next()) {
+                TaraContinent raspunsuri = new TaraContinent();
+                raspunsuri.setId(rs.getInt("id"));
+                raspunsuri.setCapitala(rs.getString("capitala"));
+                listaCuRaspunsuri.add(raspunsuri);
+            }
+            rs.close();
+            st.close();
+            conn.close();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listaCuRaspunsuri;
+    }
+  }
