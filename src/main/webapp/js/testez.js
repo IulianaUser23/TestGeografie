@@ -15,11 +15,7 @@ function listTestez(listaRaspunsuriJson) {
         var random = Math.floor(Math.random()*3);
         var listR = grup[j];
         var corect = listR[random];
-        for (var k=0; k<grup.length; k++){
-            var ResultSet
         }
-    }
-
     list2.innerHTML = listHtml;}
 
 function listDeTestat() {
