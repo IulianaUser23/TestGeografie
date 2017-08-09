@@ -1,15 +1,17 @@
 var raspunsuriCorecte = [];
 
-
-function verificaRaspunsuri(formular) {
-// console.log(formular)
-    for (var i = 0; i < 60; i = +3) {
-        if ((formular [i][0].checked) |
-            (formular [i][1].checked) | (formular [i][2].checked)) {}
-        else {
-            alert("Nu ati raspuns la toate intrebarile.")
-            return false;
+function verificaForm(form) {
+    var mesaj = "Nu ati raspuns la toate intrebarile: ";
+    var intrebariFaraRaspuns = [];
+    for (var j = 0; j < 60; j += 3) {
+        if ((form [j].checked) || (form [j + 1].checked) || (form [j + 2].checked)) {
+        } else {
+            intrebariFaraRaspuns.push(j / 3 + 1);
         }
+    }
+    if (intrebariFaraRaspuns.length > 0) {
+        alert(mesaj + intrebariFaraRaspuns.join(","));
+        return false;
     }
     return true;
 }
@@ -31,14 +33,22 @@ function listTestez(listaRaspunsuriJson) {
             + buton(grupNou[0].capitala, i) + '<br>' + buton(grupNou[1].capitala, i)
             + '<br>' + buton(grupNou[2].capitala, i) + '<hr>' + '<br>'
     }
-
-    list2.innerHTML = listHtml;
+    listHtml += '<input type="submit" name="submit" value="Afla rezultatul testului">';
+    list2.innerHTML += listHtml;
 }
+
 
 function buton(capitala, i) {
-    return '<onclick="selecteaza(\'' + capitala + '\')"> <input type="radio" name="' + i + '" value="' + capitala + '">' + capitala + '</>';
+    return '<input onclick="selecteaza(\'' + capitala + '\', ' + i / 3 + ')" type="radio" name="' + i + '" value="'
+        + capitala + '">' + capitala;
     // return '<button onclick="selecteaza(\'bucuresti\')">' + capitala +'</button>';
 }
+
+
+function selecteaza(capitala, i) {
+    console.log('capitala', capitala, i)
+}
+
 function listDeTestat() {
     $.ajax({
         url: 'testezurl?action=list'
@@ -46,3 +56,4 @@ function listDeTestat() {
         listTestez(response.listaRaspunsuriJson);
     })
 }
+

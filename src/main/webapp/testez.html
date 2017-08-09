@@ -12,13 +12,16 @@
 <body>
 
 
-<form id="myForm"  method="post" onSubmit="return verificaRaspunsuri(this)">
-    <input type="submit" name="submit" value="Afla rezultatul testului">
-</form>
-<div id="listDeTestat" style="text-align: center;
-             color: black;">
 
-</div>
+<button type="button" onclick="location.href = 'http://localhost:8080/GeoQuizz'"> Inapoi la Homepage</button>
+
+<form method="post" onSubmit="return verificaForm(this)">
+    <div id="listDeTestat" style="text-align: center;
+             color: black;">
+    </div>
+
+</form>
+
 
     <script>listDeTestat()</script>
 
