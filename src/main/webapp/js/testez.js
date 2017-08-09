@@ -1,4 +1,5 @@
 var raspunsuriCorecte = [];
+var raspunsuriSelectate = new Array (20);
 
 function verificaForm(form) {
     var mesaj = "Nu ati raspuns la toate intrebarile: ";
@@ -16,6 +17,15 @@ function verificaForm(form) {
     return true;
 }
 
+function rezultatQuizz (){
+    var rezultat=0;
+   for (var s=0; s<20; s++){
+       if (raspunsuriCorecte[s] == raspunsuriSelectate[s]) {
+           rezultat++;
+       }
+   } alert ("Rezultat final:" + rezultat);
+}
+
 function listTestez(listaRaspunsuriJson) {
     var list2 = document.getElementById('listDeTestat');
     var listHtml = '';
@@ -28,7 +38,7 @@ function listTestez(listaRaspunsuriJson) {
         grup.push(grupNou);
         var random = Math.floor(Math.random() * 3);
         var corect = grupNou[random];
-        raspunsuriCorecte.push(corect);
+        raspunsuriCorecte.push(corect.capitala);
         listHtml = listHtml + "Ce capitala are " + grupNou[random].numeTara + "?" + '<br>'
             + buton(grupNou[0].capitala, i) + '<br>' + buton(grupNou[1].capitala, i)
             + '<br>' + buton(grupNou[2].capitala, i) + '<hr>' + '<br>'
@@ -46,7 +56,8 @@ function buton(capitala, i) {
 
 
 function selecteaza(capitala, i) {
-    console.log('capitala', capitala, i)
+    console.log('capitala', capitala, i);
+    raspunsuriSelectate[i]=capitala;
 }
 
 function listDeTestat() {
