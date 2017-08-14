@@ -52,6 +52,7 @@ function buton(capitala, i) {
     return '<input onclick="selecteaza(\'' + capitala + '\', ' + i / 3 + ')" type="radio" name="' + i + '" value="'
         + capitala + '">' + capitala;
     // return '<button onclick="selecteaza(\'bucuresti\')">' + capitala +'</button>';
+
 }
 
 

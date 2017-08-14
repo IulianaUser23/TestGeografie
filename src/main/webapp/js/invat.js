@@ -8,8 +8,7 @@ function listInvat(listaCapitaleJson) {
 
     for (var i = 0; i < listaCapitaleJson.length; i++) {
         var lCompleta = listaCapitaleJson[i];
-        listHtml = listHtml + lCompleta.capitala + '&nbsp;' + lCompleta.numeTara +
-                                                   '&nbsp;' + lCompleta.continent + '</br>';
+        listHtml = listHtml + lCompleta.capitala + '&nbsp;' + lCompleta.numeTara + '</br>';
     }
     list.innerHTML = listHtml;
 }
