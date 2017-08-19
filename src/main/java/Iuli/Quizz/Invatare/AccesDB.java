@@ -95,7 +95,7 @@ public class AccesDB {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
 
-            ResultSet rs = st.executeQuery("SELECT id, numetara, capitala FROM tara ORDER BY RANDOM() LIMIT 60");
+            ResultSet rs = st.executeQuery("SELECT id, numetara, capitala FROM tara ORDER BY RANDOM() LIMIT 30");
 
             while (rs.next()) {
                 TaraContinent raspunsuri = new TaraContinent();

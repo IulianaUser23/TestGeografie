@@ -1,13 +1,13 @@
 #background{
     background-repeat: no-repeat;
-    background-size: auto 200%;
+    background-size: auto 250%;
 }
 #button {
-    background: blue;
+    background: darkblue;
     border-radius: 5px;
     color: #fff;
     display: flex;
-    font: 24px/20px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+    font: 15px/20px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
     text-align: center;
     font-weight: bold;
 }
@@ -15,12 +15,13 @@
     margin-bottom: 50px;
     height: 300px;
     width: 620px;
+    float: right;
 }
 #listDeInvatat {
-    color: black;
+    color: white;
     position: absolute;
     left: 450px;
-    background-color: yellowgreen;
+    background-color: blue;
     width: 350px;
     margin: 20px;
     padding-left: 25px;

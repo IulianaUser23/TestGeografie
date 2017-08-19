@@ -7,7 +7,8 @@ function listInvatP(listaPartialaJson) {
         var lPartiala = listaPartialaJson[i];
         listHtml = listHtml + lPartiala.numeTara + '&nbsp;' + lPartiala.capitala + '</br>';
     }
-    list1.innerHTML = listHtml;}
+    list1.innerHTML = listHtml;
+}
 
 function listDeInvatatP(continent) {
     $.ajax({
@@ -15,5 +16,4 @@ function listDeInvatatP(continent) {
     }).done(function (response) {
         listInvatP(response.listaPartialaJson); })
 }
-
 

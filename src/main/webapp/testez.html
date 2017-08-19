@@ -4,16 +4,24 @@
 
     <title>Test Capitale</title>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="js/testez.js" type="text/javascript"></script>
+
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="js/testez.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
 </head>
 
 <body id="background" style="text-align: left" text="#8b4513" marginwidth="160" ;>
+
+<div id="layout" class="x-borders" style="padding-left: 50%">
+    <header>
+        <h1> Test </h1>
+    </header>
+</div>
+
 <button type="button" onclick="location.href = 'http://localhost:8080/GeoQuizz'" class="btn btn-warning btn-sm"
-        style="float: left"> Pagina principală
+        style="float: left"> Intoarcere la Pagina principală
 </button>
 <br><br>
 
@@ -23,14 +31,40 @@
 </header>
 
 <form method="get" action="javascript:rezultatQuizz()" onSubmit="return verificaForm(this)">
-    <div id="listDeTestat" style="text-align: center;
-             color: black;">
+    <div id="listDeTestat" style="text-align: center; color: black;">
     </div>
+    <input type="submit" name="submit" value="Afla rezultatul testului" style="background-color: seagreen; margin: 5px; padding: 5px;
+">
 </form>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Punctajul obtinut este</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script>listDeTestat()
-</script>
+<script>listDeTestat()</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

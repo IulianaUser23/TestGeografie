@@ -1,17 +1,19 @@
 var raspunsuriCorecte = [];
-var raspunsuriSelectate = new Array (20);
+var raspunsuriSelectate = new Array (10);
 
 function verificaForm(form) {
     var mesaj = "Nu ati raspuns la toate intrebarile: ";
     var intrebariFaraRaspuns = [];
-    for (var j = 0; j < 60; j += 3) {
+    for (var j = 0; j < 30; j += 3) {
         if ((form [j].checked) || (form [j + 1].checked) || (form [j + 2].checked)) {
         } else {
             intrebariFaraRaspuns.push(j / 3 + 1);
         }
     }
     if (intrebariFaraRaspuns.length > 0) {
-        alert(mesaj + intrebariFaraRaspuns.join(","));
+        $("#myModal .modal-body").text(mesaj + intrebariFaraRaspuns.join(","));
+        $("#myModal").modal('show');
+       // alert(mesaj + intrebariFaraRaspuns.join(","));
         return false;
     }
     return true;
@@ -19,11 +21,13 @@ function verificaForm(form) {
 
 function rezultatQuizz (){
     var rezultat=0;
-   for (var s=0; s<20; s++){
+   for (var s=0; s<10; s++){
        if (raspunsuriCorecte[s] == raspunsuriSelectate[s]) {
            rezultat++;
        }
-   } alert ("Rezultat final:" + rezultat);
+   } $("#myModal .modal-body").text("Rezultat final:" + rezultat);
+    $("#myModal").modal('show');
+   //alert ("Rezultat final:" + rezultat);
 }
 
 function listTestez(listaRaspunsuriJson) {
@@ -43,18 +47,13 @@ function listTestez(listaRaspunsuriJson) {
             + buton(grupNou[0].capitala, i) + '<br>' + buton(grupNou[1].capitala, i)
             + '<br>' + buton(grupNou[2].capitala, i) + '<hr>' + '<br>'
     }
-    listHtml += '<input type="submit" name="submit" value="Afla rezultatul testului">';
     list2.innerHTML += listHtml;
 }
-
 
 function buton(capitala, i) {
     return '<input onclick="selecteaza(\'' + capitala + '\', ' + i / 3 + ')" type="radio" name="' + i + '" value="'
         + capitala + '">' + capitala;
-    // return '<button onclick="selecteaza(\'bucuresti\')">' + capitala +'</button>';
-
-}
-
+    }
 
 function selecteaza(capitala, i) {
     console.log('capitala', capitala, i);
