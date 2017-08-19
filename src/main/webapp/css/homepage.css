@@ -11,12 +11,6 @@
     text-align: center;
     font-weight: bold;
 }
-#harta {
-    margin-bottom: 50px;
-    height: 300px;
-    width: 620px;
-    float: right;
-}
 #listDeInvatat {
     color: white;
     position: absolute;
