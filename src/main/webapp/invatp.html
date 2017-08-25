@@ -10,72 +10,87 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
 </head>
 
-<body id="background" style="text-align: right" text="#8b4513" marginwidth="160" ;>
-
-<h2>
+<body>
+<img src="pictures/headlearn.jpg" style="width: 100%">
+<h3 style="background-color: lightblue; margin-top: 10px; padding-bottom:5px; padding-top: 10px;  margin-bottom: 10px">
     <button type="button" onclick="location.href = 'http://localhost:8080/GeoQuizz'" class="btn btn-warning btn-sm"
-            style="float: left"> Pagina principală
+            style="float: left; background-color: blue; color: white; margin-left: 20px; margin-right: 20px;"> Pagina principală
     </button>
-    </br>
-</h2>
-
+    <p>Aici veți gasi toate capitalele lumii. Navigati folosind butoanele aferente fiecarui continent  </p>
+</h3>
 
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4" style="background-color:darkred">
         <center>
             <div>
-                <button type="button" onclick="listDeInvatatP(1)">Europa</button>
+                <button type="button" onclick="listDeInvatatP(1)" style="margin-top: 20px;
+                 background-color: bisque">Europa
+                </button>
                 <br><br>
                 <img src="pictures/Europa.png" alt="Continentul european" style="width:150px;height:150px;">
-                <br><hr>
+                <br>
+                <hr>
             </div>
             <div>
-                <button type="button" onclick="listDeInvatatP(2)" style="margin-left: 10px">Asia</button>
+                <button type="button" onclick="listDeInvatatP(2)" style="margin-left: 10px;
+                 background-color: bisque">Asia
+                </button>
                 <br><br>
                 <img src="pictures/Asia.png" alt="Continentul asiatic" style="width:150px;height:150px;">
-                <br><hr>
+                <br>
+                <hr>
             </div>
             <div>
-                <button type="button" onclick="listDeInvatatP(3)" style="margin-left: 30px">America de Sud</button>
+                <button type="button" onclick="listDeInvatatP(3)" style="margin-left: 30px;
+                 background-color: bisque">America de Sud
+                </button>
                 <br><br>
                 <img src="pictures/AmericaS.png" alt="Continentul sud american" style="width:150px;height:150px;">
-                <br><hr>
+                <br>
+                <hr>
             </div>
         </center>
     </div>
     <div class="col-sm-4">
-        <div id="listDeInvatatP" style="text-align:center; color: black; background-color: bisque;">
-            <iframe id="harta" src="https://www.google.com/maps/embed" style="align-content: center; width: 450px;
-             height: 700px"></iframe>
-
-
-            <!--harta care dispare-->
-
-        </div>
-
+        <center>
+            <div id="listDeInvatatP" style="text-align:center; color: black; background-color: bisque;">
+                <iframe id="harta" src="https://www.google.com/maps/embed" style="align-content: center; width: 430px;
+             height: 720px"></iframe>
+            </div>
+        </center>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" style="background-color:darkred">
         <center>
             <div>
-                <button type="button" onclick="listDeInvatatP(4)" style="margin-left: 10px">America de Nord</button>
+                <button type="button" onclick="listDeInvatatP(4)" style="margin-left: 10px; margin-top: 20px;
+                background-color: bisque">America de Nord
+                </button>
                 <br><br>
                 <img src="pictures/AmericaN.png" alt="Continentul nord american" style="width:150px;height:150px;">
-                <br><hr>
+                <br>
+                <hr>
             </div>
             <div>
-                <button type="button" onclick="listDeInvatatP(5)" style="margin-left: 20px">Africa</button>
+                <button type="button" onclick="listDeInvatatP(5)" style="margin-left: 20px;
+                background-color: bisque">Africa
+                </button>
                 <br><br>
                 <img src="pictures/Africa.png" alt="Continentul african" style="width:150px;height:150px;">
             </div>
-            <br><hr>
+
+            <hr>
             <div>
-                <button type="button" onclick="listDeInvatatP(6)" style="margin-left: 20px">Australia si Oceania</button>
+                <button type="button" onclick="listDeInvatatP(6)" style="margin-left: 20px;background-color: bisque">
+                    Australia si Oceania
+                </button>
                 <br><br>
                 <img src="pictures/AustraliaOceania.png" alt="Continentul australian si Oceania"
                      style="width:150px;height:150px;">
-                <br><hr>
+                <br>
+                <hr>
             </div>
         </center>
     </div>

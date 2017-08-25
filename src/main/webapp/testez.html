@@ -12,30 +12,41 @@
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
 </head>
 
-<body id="background" style="text-align: left" text="#8b4513" marginwidth="160" ;>
-
-<div id="layout" class="x-borders" style="padding-left: 50%">
-    <header>
-        <h1> Test </h1>
-    </header>
-</div>
-
+<body id="background" style="text-align: left; background-color: powderblue" text="#8b4513" marginwidth="160" ;>
+<center><img src="pictures/Head1.jpg" style="width: 100%">
+</center>
 <button type="button" onclick="location.href = 'http://localhost:8080/GeoQuizz'" class="btn btn-warning btn-sm"
-        style="float: left"> Intoarcere la Pagina principală
+        style="float: left; padding: 10px"> Intoarcere la Pagina principală
 </button>
 <br><br>
 
-<header id="indicatii" style="background-color: lightgreen; ">
+<header id="indicatii" style="background-color: cornflowerblue; ">
     Răspunde la întrebările din testul următor și vezi câte capitale știi. Ai trei variante de răspuns și, evident, doar
     una este corectă. Succes!
 </header>
 
-<form method="get" action="javascript:rezultatQuizz()" onSubmit="return verificaForm(this)">
-    <div id="listDeTestat" style="text-align: center; color: black;">
+<div class="row">
+    <div class="col-sm-4" style="background-color:blue;">
+        <center>
+            <img src="pictures/test1.png" style="padding-top: 50px;">
+        </center>
     </div>
-    <input type="submit" name="submit" value="Afla rezultatul testului" style="background-color: seagreen; margin: 5px; padding: 5px;
-">
-</form>
+    <div class="col-sm-4">
+        <form method="get" action="javascript:rezultatQuizz()" onSubmit="return verificaForm(this)">
+            <div id="listDeTestat" style="text-align: center; color: black; ">
+            </div>
+            <center>
+                <input type="submit" name="submit" value="Afla rezultatul testului" style="background-color: steelblue; margin: 5px;
+    padding: 5px;"></center>
+        </form>
+    </div>
+    <div class="col-sm-4" style="background-color:blue">
+        <center>
+            <img src="pictures/test2.png" style="padding-top: 50px;">
+        </center>
+    </div>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
